@@ -1,0 +1,7 @@
+package model;
+
+public class Specie{
+	private String name, cientificName, type;
+	private boolean migratory;
+	
+}

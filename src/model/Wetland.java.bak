@@ -1,0 +1,12 @@
+package model;
+
+public class Wetland{
+	
+	private String name, type, url;
+	private double area;
+	private boolean protectedArea;
+	
+	//Relationships
+	private Date date;
+	
+}

@@ -1,0 +1,8 @@
+package model;
+
+public class ManagementPlan{
+	
+	private String name, cientificName, type;
+	private double compliancePercentage;
+	
+}

@@ -1,0 +1,7 @@
+package model;
+
+public enum WetEvent{
+
+    MAINTENANCE, SCHOOL_VISIT, IMPROVEMENT_ACTIVITY, CELEBRATION
+
+}
