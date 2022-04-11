@@ -7,8 +7,19 @@ import model.Zone;
 
 public class TareaIntegradora2{
 	
+	/**
+	 * Asociation with the class Control
+	 */
 	private Control control;
+
+	/**
+	 * Asociation with the class Zone
+	 */
 	private Zone newZone;
+
+	/**
+	 * Asociation with the object Scanner
+	 */
 	private Scanner sc;
 	
 	/**

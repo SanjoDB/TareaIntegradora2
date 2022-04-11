@@ -2,24 +2,23 @@ package model;
 
 public class Wetland{
 
+	/** 
+	 * Number of Species and Events in their array
+	 */
 	public static final int length = 200;
 	
 	/** 
 	 * name String is use to store the name of wetland it is
 	 * type String is use to store the type of the wetland it is
 	 * url String is use to store the url of the web page of the wetland
+	 * protectedArea String is use to check if the area of the wetland is protected or no by the goverment
 	 */
-	private String name, type, url;
+	private String name, type, url, protectedArea;
 
 	/** 
 	 * area double is use to store the area of the wetland
 	 */
 	private double area;
-
-	/** 
-	 * protectedArea boolean is use to check if the area of the wetland is protected or no by the goverment
-	 */
-	private String protectedArea;
 
 	/** 
 	 * numMaintenance int is use to check if the area of the wetland is protected or no by the goverment
@@ -32,7 +31,6 @@ public class Wetland{
 	private Event [] events;
 	private Specie [] species;
 	
-	//constructor
 	/** 
 	 * Constructor used for obj Wetland
 	 * @param name
@@ -40,6 +38,7 @@ public class Wetland{
 	 * @param url
 	 * @param area
 	 * @param protectedArea
+	 * @param zone
 	 */
 	public Wetland(String name, String type, String url, double area, String protectedArea, Zone zone){
 		
@@ -234,8 +233,9 @@ public class Wetland{
 	//Methods
 	
 	/**
-	* @return true if you can add a new event, false in case it is full
-	*/
+	 * Method used to verify if there is space on the array of Events
+	 * @return emptyPosition boolean, true if you can add a new Event, false in case it is full
+	 */
 	public boolean hasSpaceE(){
 
 		boolean emptyPosition = false;
@@ -253,9 +253,9 @@ public class Wetland{
 	}
 
 	/**
-	* @return un entero con la primera posicion vacia en el arreglo
-	* y -1 si el arreglo esta lleno
-	*/
+	 * Method used to obtain the position of an empty space on the array of Events
+	 * @return position int, the empty position in the array
+	 */
 	public int getEmptyPositionE(){
 		boolean flag = false;
 		int position = -1;
@@ -274,7 +274,15 @@ public class Wetland{
 	}
 
 	/**
-	*
+	 * Method that add an event
+	 * @param eventType int, type of event registered
+	 * @param day int, value of the day of the event registered
+	 * @param month int, value of the month of the event registered
+	 * @param year int, value of the year of the event registered
+	 * @param host String, name of the host of the event registered
+	 * @param description String, short description of the event registered
+	 * @param cost double, value of the event registered
+	 * @return out String, Event added
 	 */
 	public String addEvent(int eventType, int day, int month, int year, String host, String description, double cost) {
 
@@ -303,8 +311,9 @@ public class Wetland{
 	}
 
 	/**
-	* @return true if you can add a new event, false in case it is full
-	*/
+	 * Method used to verify if there is space on the array of Species
+	 * @return emptyPosition boolean, true if you can add a new Specie, false in case it is full
+	 */
 	public boolean hasSpaceS(){
 
 		boolean emptyPosition = false;
@@ -322,9 +331,9 @@ public class Wetland{
 	}
 
 	/**
-	* @return un entero con la primera posicion vacia en el arreglo
-	* y -1 si el arreglo esta lleno
-	*/
+	 * Method used to obtain the position of an empty space on the array of Species
+	 * @return position int, the empty position in the array
+	 */
 	public int getEmptyPositionS(){
 		boolean flag = false;
 		int position = -1;
@@ -343,7 +352,12 @@ public class Wetland{
 	}
 
 	/**
-	*
+	 * Method that add a specie
+	 * @param name String, name of the specie registered
+	 * @param cientificName String, cientific name of the specie registered
+	 * @param migratory String, if the specie is migratory or not
+	 * @param type int, type of the specie registered
+	 * @return out String, Specie added
 	 */
 	public String addSpecie(String name, String cientificName, String migratory, int type) {
 
@@ -370,6 +384,10 @@ public class Wetland{
 		return out;
 	}
 
+	/**
+	 * Method used to verify if the specie was already registered
+	 * @return repeat int, defines if it is registered or not
+	 */
 	public int repeatSpecie(){
 
         boolean flag = false;
@@ -389,7 +407,12 @@ public class Wetland{
         return repeat;
 	}
 
-	public int numMaintenance(String name, int year){
+	/**
+	 * Method used to obtain the number of maintenances done in a year
+	 * @param year int, the year registered by the user
+	 * @return counter int, number of maintenances done
+	 */
+	public int numMaintenance(int year){
 
 		int counter = 0;
 
@@ -402,6 +425,10 @@ public class Wetland{
 		return counter;
 	}
 
+	/**
+	 * Method used to obtain the information of the species in a wetland
+	 * @return outs String, the string of species
+	 */
 	public String showSpecies(){
 		String outs= "";
 
@@ -415,17 +442,29 @@ public class Wetland{
 		return outs;
 	}
 
+	/**
+	 * Method used to obtain the number of flora species in a wetland
+	 * @param counter int, variable used to storage the number of flora species
+	 * @return counter int, number of flora species in a wetland
+	 */
 	public int lessSpecie(int counter){
 
 		for(int index=0; index<length; index++){
-			if (species[index]!=null && species[index].getType().equals(Kind.TERRESTRIAL_FLORA) || species[index].getType().equals(Kind.AQUATIC_FLORA)){
-				counter++;
+			if (species[index]!=null){
+				if(species[index].getType().equals(Kind.TERRESTRIAL_FLORA) || species[index].getType().equals(Kind.AQUATIC_FLORA)){
+					counter++;
+				}
 			}
 		}
 
 		return counter;
 	}
 
+	/**
+	 * Method used to obtain the number of fauna species in a wetland
+	 * @param counter int, variable used to storage the number of fauna species
+	 * @return counter int, number of fauna species in a wetland
+	 */
 	public int moreSpecie(int counter){
 
 		for(int index=0; index<length; index++){
@@ -439,6 +478,12 @@ public class Wetland{
 		return counter;
 	}
 
+	/**
+	 * Method used to obtain the position of the wetland that got an specific specie
+	 * @param name String, name of the Specie registered by the user
+	 * @param i int, position of the wetland
+	 * @return pos int, position of the wetlands that have an specific specie
+	 */
 	public int findSpecie(String name, int i){
 
 		int pos= -1;
@@ -455,6 +500,10 @@ public class Wetland{
 		return pos;
 	}
 
+	/**
+	 * Method used to show the information of a Wetland
+	 * @return Wetland
+	 */
 	public String toString() {
 		return "Name of the Wetland: " + name + "\n" + 
 		"Type of Wetland: " + type + "\n" + 

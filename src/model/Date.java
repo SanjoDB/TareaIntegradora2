@@ -83,6 +83,10 @@ public class Date{
 		
 	}
 	
+	/**
+	 * Method used to show the information of a Date
+	 * @return Date
+	 */
 	public String toString() {
 		return day + "/" + month + "/" + year;
 	}

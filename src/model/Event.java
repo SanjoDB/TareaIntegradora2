@@ -3,7 +3,6 @@ package model;
 public class Event{
 	
 	/** 
-	 * type String is use to store the type of event
 	 * host String is use to store the host of the event
 	 * description String is use to store the description of the event
 	 */
@@ -160,6 +159,10 @@ public class Event{
 
 	}
 
+	/**
+	 * Method used to show the information of an Event
+	 * @return Event
+	 */
 	public String toString() {
 		return "Event: " + "\n" + 
 		"Type: " + eventType + "\n" + 

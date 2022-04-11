@@ -6,13 +6,9 @@ public class Specie{
 	 * name String is use to store the name of the specie
 	 * cientificName String is use to store the cientific name of the specie
 	 * type String is use to store the type of the specie
+	 * migratory String is use to check if the specie is migratory
 	 */
-	private String name, cientificName;
-
-	/** 
-	 * migratory boolean is use to check if the specie is migratory
-	 */
-	private String migratory;
+	private String name, cientificName, migratory;
 
 	/** 
 	 * numFauna int is use to store the name of the specie
@@ -143,6 +139,10 @@ public class Specie{
 		
 	}
 
+	/**
+	 * Method used to show the information of a Specie
+	 * @return Specie
+	 */
 	public String toString() {
 		return "Specie: " + "\n" + 
 		"Name: " + name + "\n" + 

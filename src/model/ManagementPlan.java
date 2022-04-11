@@ -62,6 +62,10 @@ public class ManagementPlan{
 		
 	}
 
+	/**
+	 * Method used to show the information of a Management plan
+	 * @return Management plan
+	 */
 	public String toString() {
 		return "Percentage of restorage: " + restoragePercentage + "%" + "\n" + "Percentage of conservation: " + conservationPercentage + "%";
 	}

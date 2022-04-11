@@ -8,7 +8,6 @@ public class Zone{
 	 */
 	private String type, nameUbication;
 	
-	//constructor
 	/** 
 	 * Constructor used for obj Zone
 	 * @param type
@@ -62,6 +61,10 @@ public class Zone{
 		
 	}
 
+	/**
+	 * Method used to show the information of a Zone
+	 * @return Zone
+	 */
 	public String toString() {
 		return "Type of Zone: " + type+ "\n" + "Name of the Ubication: " + nameUbication;
 	}
